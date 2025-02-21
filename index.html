@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerealis - Your Ally in Quality Breakfast Cereals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.css">
+    <link rel="stylesheet" href="https://unpkg.com/jsvectormap/dist/css/jsvectormap.css">
+    <script src="https://unpkg.com/jsvectormap"></script>
+    <script src="https://unpkg.com/jsvectormap/dist/maps/world.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#numbers">Key Numbers</a>
+            <a href="#global-presence">Global Presence</a>
+            <a href="#products">Products</a>
+            <a href="#quality">Quality</a>
+            <a href="#sustainability">Sustainability</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="banner" id="home">
+        <video class="banner-video" autoplay muted loop playsinline>
+            <source src="ambicao-cerealis.webm" type="video/webm">
+            <source src="ambicao-cerealis.mov" type="video/quicktime">
+        </video>
+        <h1>Turning Cereal Heritage into Supply Security</h1>
+        <p>Retailers deserve a stable and flexible supply chain. Cerealis delivers.</p>
+    </header>
+
+    <section class="values" id="values">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+            <div class="value-card speak-up">
+                <h3>Speak Up</h3>
+                <p>Be transparent and direct. Share your constructive opinions to help improve our company. We value open dialogue and are always ready to adapt.</p>
+                <div class="value-tags">
+                    <span class="tag">Transparency</span>
+                    <span class="tag">Directness</span>
+                </div>
+            </div>
+
+            <div class="value-card own-it">
+                <h3>Own It</h3>
+                <p>Be rigorous and proud of your work. Celebrate victories and learn from setbacks. Take responsibility for your individual and collective achievements.</p>
+                <div class="value-tags">
+                    <span class="tag">Rigor</span>
+                    <span class="tag">Responsibility</span>
+                </div>
+            </div>
+
+            <div class="value-card learn-forever">
+                <h3>Learn Forever</h3>
+                <p>Stay curious and open to learning from colleagues, customers, and competitors. Embrace humility and maintain an eagerness to grow and improve.</p>
+                <div class="value-tags">
+                    <span class="tag">Curiosity</span>
+                    <span class="tag">Humility</span>
+                </div>
+            </div>
+
+            <div class="value-card strive">
+                <h3>Strive for Greatness</h3>
+                <p>Be ambitious and courageous in your journey. Challenge yourself and the company to reach new heights with an entrepreneurial spirit.</p>
+                <div class="value-tags">
+                    <span class="tag">Ambition</span>
+                    <span class="tag">Courage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="numbers" id="numbers">
+        <div class="stat"><strong>440,000</strong> Tons Produced</div>
+        <div class="stat"><strong>5</strong> Product Categories</div>
+        <div class="stat"><strong>130</strong> Private Label Products </div>
+    </section>
+
+    <section class="global-presence" id="global-presence">
+        <h2>Global Presence</h2>
+        <div class="map-container">
+            <div id="world-map"></div>
+            <div class="location-list">
+                <h3>Export Markets</h3>
+                <div class="market-pill main-market" data-country="USA" onclick="window.mapInstance.setFocus({scale: 1, lat: 37.0902, lng: -95.7129, animate: true})">
+                    <span class="flag">🇺🇸</span>
+                    <span class="name">United States</span>
+                    <span class="details">Main Export Market</span>
+                </div>
+                <div class="export-markets">
+                    <div class="export-market" data-country="ESP">
+                        <span class="flag">🇪🇸</span>
+                        <span class="name">Spain</span>
+                    </div>
+                    <div class="export-market" data-country="FRA">
+                        <span class="flag">🇫🇷</span>
+                        <span class="name">France</span>
+                    </div>
+                    <div class="export-market" data-country="BEL">
+                        <span class="flag">🇧🇪</span>
+                        <span class="name">Belgium</span>
+                    </div>
+                    <div class="export-market" data-country="AGO">
+                        <span class="flag">🇦🇴</span>
+                        <span class="name">Angola</span>
+                    </div>
+                    <div class="export-market" data-country="MOZ">
+                        <span class="flag">🇲🇿</span>
+                        <span class="name">Mozambique</span>
+                    </div>
+                    <div class="export-market" data-country="CPV">
+                        <span class="flag">🇨🇻</span>
+                        <span class="name">Cabo Verde</span>
+                    </div>
+                </div>
+
+                <h3>Industrial Centers</h3>
+                <div class="location-item" data-country="PRT">
+                    <div class="location-header">
+                        <span class="flag">🇵🇹</span>
+                        <span class="name">Portugal</span>
+                    </div>
+                    <div class="industrial-centers">
+                        <p>Trofa - Cereals & Bars</p>
+                        <p>Maia - Semolina, Pasta (2), Cookies</p>
+                        <p>Lisboa - Soft Wheat</p>
+                        <p>Porto - Soft Wheat & Rye</p>
+                    </div>
+                </div>
+                <div class="location-item" data-country="CZE">
+                    <div class="location-header">
+                        <span class="flag">🇨🇿</span>
+                        <span class="name">Czechia</span>
+                    </div>
+                    <div class="industrial-centers">
+                        <p>Litovel - Pasta Production</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2>Our Production Capabilities</h2>
+        <p class="products-intro">From breakfast cereals to snacks, we manufacture a wide range of products with various packaging options to meet your specific needs.</p>
+        
+        <div class="product-categories">
+            <div class="category">
+                <h3>Ready-to-Eat Cereals</h3>
+                <div class="product-types">
+                    <div class="product-type">
+                        <h4>Children's Cereals</h4>
+                        <ul>
+                            <li>Star-shaped cereals</li>
+                            <li>Cookie cereals</li>
+                            <li>Chocolate-flavored cereals</li>
+                            <li>Honey-flavored squares</li>
+                            <li>Filled pillows</li>
+                            <li>Loops and balls</li>
+                        </ul>
+                    </div>
+                    <div class="product-type">
+                        <h4>Classic Cereals</h4>
+                        <ul>
+                            <li>Corn flakes</li>
+                            <li>Bran/Wheat flakes</li>
+                            <li>Rice/Wheat flakes</li>
+                            <li>Rice crispies</li>
+                            <li>Granola & Muesli</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Additional Product Lines</h3>
+                <div class="additional-products">
+                    <div class="product-type">
+                        <i class="fas fa-utensils"></i>
+                        <h4>Pasta</h4>
+                        <p>High-quality pasta production facilities in Portugal and Czechia</p>
+                    </div>
+                    <div class="product-type">
+                        <i class="fas fa-cookie"></i>
+                        <h4>Cookies</h4>
+                        <p>Delicious cookies produced with premium ingredients</p>
+                    </div>
+                    <div class="product-type">
+                        <i class="fas fa-box"></i>
+                        <h4>Snack Bars</h4>
+                        <p>Nutritious and convenient snack bars for on-the-go consumption</p>
+                    </div>
+                    <div class="product-type">
+                        <i class="fas fa-wheat-awn"></i>
+                        <h4>Flour</h4>
+                        <p>Premium quality flour milled from carefully selected grains</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>Packaging Solutions</h3>
+                <div class="packaging-options">
+                    <div class="package-type">
+                        <i class="fas fa-box-open"></i>
+                        <span>Cardboard Boxes</span>
+                    </div>
+                    <div class="package-type">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Pillow Bags with Print</span>
+                    </div>
+                    <div class="package-type">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Pillow Bags without Print</span>
+                    </div>
+                    <div class="package-type">
+                        <i class="fas fa-square"></i>
+                        <span>False Bottom Square</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-cta">
+            <p>Looking for custom cereal solutions? We can help!</p>
+            <a href="#contact" class="btn">Contact Our Team</a>
+        </div>
+    </section>
+
+    <section class="quality" id="quality">
+        <div class="quality-content">
+            <h2>Quality Excellence</h2>
+            <p class="quality-intro">At Cerealis, quality isn't just a certification on the wall – it's the foundation of everything we do. From carefully selecting the finest ingredients to implementing rigorous quality control processes, we ensure that every product meets the highest standards of excellence.</p>
+            
+            <div class="quality-grid">
+                <div class="quality-pillar">
+                    <div class="icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Quality Control</h3>
+                    <p>State-of-the-art laboratories and continuous monitoring ensure every batch meets our strict quality standards.</p>
+                    <div class="cert-badges">
+                        <span class="cert-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            IFS Food
+                        </span>
+                    </div>
+                </div>
+
+                <div class="quality-pillar">
+                    <div class="icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Premium Ingredients</h3>
+                    <p>We source the finest ingredients, working closely with trusted suppliers who share our commitment to quality.</p>
+                    <div class="cert-badges">
+                        <span class="cert-badge">
+                            <i class="fas fa-check-circle"></i>
+                            BRC Standards
+                        </span>
+                    </div>
+                </div>
+
+                <div class="quality-pillar">
+                    <div class="icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Advanced Production</h3>
+                    <p>Modern facilities and automated processes ensure consistent quality in every product we manufacture.</p>
+                    <div class="cert-badges">
+                        <span class="cert-badge">
+                            <i class="fas fa-industry"></i>
+                            FSSC 22000
+                        </span>
+                    </div>
+                </div>
+
+                <div class="quality-pillar special-certifications">
+                    <div class="icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Specialized Standards</h3>
+                    <p>Meeting diverse dietary and religious requirements with certified production processes.</p>
+                    <div class="cert-badges special">
+                        <span class="cert-badge">Halal</span>
+                        <span class="cert-badge">Kosher</span>
+                        <span class="cert-badge">Gluten-Free</span>
+                        <span class="cert-badge">Vegan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sustainability" id="sustainability">
+        <div class="sustainability-content">
+            <h2>Our Commitment to Sustainability</h2>
+            <div class="sustainability-grid">
+                <div class="sustainability-card environment">
+                    <div class="icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Climate & Environment</h3>
+                    <div class="stat-highlight">71%</div>
+                    <p>of manufacturing electricity from renewables in 2023</p>
+                </div>
+                
+                <div class="sustainability-card ingredients">
+                    <div class="icon">
+                        <i class="fas fa-wheat-awn"></i>
+                    </div>
+                    <h3>Sustainable Ingredients</h3>
+                    <div class="certifications">
+                        <div class="cert-item">
+                            <img src="Rainforest-Certified.png" alt="Rainforest Alliance Certified" class="cert-logo">
+                            <span class="cert-name">Rainforest Alliance</span>
+                        </div>
+                        <div class="cert-item">
+                            <img src="RSPO-Certified.png" alt="RSPO Certified" class="cert-logo">
+                            <span class="cert-name">RSPO Certified</span>
+                        </div>
+                    </div>
+                    <p>Palm free operations & local sourcing</p>
+                </div>
+
+                <div class="sustainability-card packaging">
+                    <div class="icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Sustainable Packaging</h3>
+                    <div class="stat-highlight">98%</div>
+                    <p>of packaging designed to be recyclable</p>
+                </div>
+
+                <div class="sustainability-card diversity">
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Diversity & Inclusion</h3>
+                    <div class="stat-highlight">49%</div>
+                    <p>of global management roles held by women</p>
+                    <div class="safety-week">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Annual Safety Week Celebration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <h2>Partner with Us</h2>
+        <p>We provide both mainstream and high-value niche cereals. Secure your supply today!</p>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </section>
+
+    <footer>
+        <p>Contact us at <a href="mailto:info@cerealis.pt">info@cerealis.pt</a></p>
+        <p>&copy; 2025 Cerealis. All rights reserved.</p>
+    </footer>
+
+    <script src="map.js"></script>
+    <script src="numbers.js"></script>
+    <a href="#home" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <script>
+        // Show/hide scroll-to-top button based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 500) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
