@@ -8,16 +8,23 @@ const INDUSTRIAL_CENTERS = [
 ];
 
 const EXPORT_MARKETS = [
-    { country: 'US', flag: '🇺🇸', name: 'United States' },
-    { country: 'ES', flag: '🇪🇸', name: 'Spain' },
-    { country: 'FR', flag: '🇫🇷', name: 'France' },
-    { country: 'BE', flag: '🇧🇪', name: 'Belgium' },
+    { country: 'ZA', flag: '🇿🇦', name: 'South Africa' },
+    { country: 'AD', flag: '🇦🇩', name: 'Andorra' },
     { country: 'AO', flag: '🇦🇴', name: 'Angola' },
-    { country: 'MZ', flag: '🇲🇿', name: 'Mozambique' },
+    { country: 'BE', flag: '🇧🇪', name: 'Belgium' },
+    { country: 'BF', flag: '🇧🇫', name: 'Burkina Faso' },
     { country: 'CV', flag: '🇨🇻', name: 'Cape Verde' },
+    { country: 'CM', flag: '🇨🇲', name: 'Cameroon' },
+    { country: 'CA', flag: '🇨🇦', name: 'Canada' },
+    { country: 'CY', flag: '🇨🇾', name: 'Cyprus' },
+    { country: 'CI', flag: '🇨🇮', name: 'Ivory Coast' },
+    { country: 'AE', flag: '🇦🇪', name: 'United Arab Emirates' },
+    { country: 'ES', flag: '🇪🇸', name: 'Spain' },
+    { country: 'US', flag: '🇺🇸', name: 'United States' },
+    { country: 'FR', flag: '🇫🇷', name: 'France' },
     { country: 'GA', flag: '🇬🇦', name: 'Gabon' },
     { country: 'GH', flag: '🇬🇭', name: 'Ghana' },
-    { country: 'GB', flag: '🇬🇧', name: 'United Kingdom' },
+    { country: 'GB', flag: '🇬🇧', name: 'Great Britain' },
     { country: 'GW', flag: '🇬🇼', name: 'Guinea-Bissau' },
     { country: 'HT', flag: '🇭🇹', name: 'Haiti' },
     { country: 'NL', flag: '🇳🇱', name: 'Netherlands' },
@@ -28,8 +35,19 @@ const EXPORT_MARKETS = [
     { country: 'MO', flag: '🇲🇴', name: 'Macau' },
     { country: 'MY', flag: '🇲🇾', name: 'Malaysia' },
     { country: 'MV', flag: '🇲🇻', name: 'Maldives' },
-    { country: 'YT', flag: '🇾🇹', name: 'Mayotte' }
-];
+    { country: 'YT', flag: '🇾🇹', name: 'Mayotte' },
+    { country: 'MZ', flag: '🇲🇿', name: 'Mozambique' },
+    { country: 'MD', flag: '🇲🇩', name: 'Moldova' },
+    { country: 'NA', flag: '🇳🇦', name: 'Namibia' },
+    { country: 'PA', flag: '🇵🇦', name: 'Panama' },
+    { country: 'PL', flag: '🇵🇱', name: 'Poland' },
+    { country: 'CU', flag: '🇨🇺', name: 'Cuba' },
+    { country: 'ST', flag: '🇸🇹', name: 'São Tomé and Príncipe' },
+    { country: 'SN', flag: '🇸🇳', name: 'Senegal' },
+    { country: 'CH', flag: '🇨🇭', name: 'Switzerland' },
+    { country: 'TL', flag: '🇹🇱', name: 'East Timor' },
+    { country: 'UG', flag: '🇺🇬', name: 'Uganda' }
+].sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically by name
 
 // Map configuration
 const MAP_CONFIG = {
