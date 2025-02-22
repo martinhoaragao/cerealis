@@ -20,6 +20,7 @@
             <a href="#products">Products</a>
             <a href="#quality">Quality</a>
             <a href="#sustainability">Sustainability</a>
+            <a href="#values">Values</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -33,114 +34,17 @@
         <p>Retailers deserve a stable and flexible supply chain. Cerealis delivers.</p>
     </header>
 
-    <section class="values" id="values">
-        <h2>Our Values</h2>
-        <div class="values-grid">
-            <div class="value-card speak-up">
-                <h3>Speak Up</h3>
-                <p>Be transparent and direct. Share your constructive opinions to help improve our company. We value open dialogue and are always ready to adapt.</p>
-                <div class="value-tags">
-                    <span class="tag">Transparency</span>
-                    <span class="tag">Directness</span>
-                </div>
-            </div>
-
-            <div class="value-card own-it">
-                <h3>Own It</h3>
-                <p>Be rigorous and proud of your work. Celebrate victories and learn from setbacks. Take responsibility for your individual and collective achievements.</p>
-                <div class="value-tags">
-                    <span class="tag">Rigor</span>
-                    <span class="tag">Responsibility</span>
-                </div>
-            </div>
-
-            <div class="value-card learn-forever">
-                <h3>Learn Forever</h3>
-                <p>Stay curious and open to learning from colleagues, customers, and competitors. Embrace humility and maintain an eagerness to grow and improve.</p>
-                <div class="value-tags">
-                    <span class="tag">Curiosity</span>
-                    <span class="tag">Humility</span>
-                </div>
-            </div>
-
-            <div class="value-card strive">
-                <h3>Strive for Greatness</h3>
-                <p>Be ambitious and courageous in your journey. Challenge yourself and the company to reach new heights with an entrepreneurial spirit.</p>
-                <div class="value-tags">
-                    <span class="tag">Ambition</span>
-                    <span class="tag">Courage</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="numbers" id="numbers">
         <div class="stat"><strong>440,000</strong> Tons Produced</div>
         <div class="stat"><strong>5</strong> Product Categories</div>
-        <div class="stat"><strong>130</strong> Private Label Products </div>
+        <div class="stat"><strong>160</strong> Private Label Products in Breakfast Cereals</div>
     </section>
 
     <section class="global-presence" id="global-presence">
         <h2>Global Presence</h2>
-        <div class="map-container">
-            <div id="world-map"></div>
-            <div class="location-list">
-                <h3>Export Markets</h3>
-                <div class="market-pill main-market" data-country="USA" onclick="window.mapInstance.setFocus({scale: 1, lat: 37.0902, lng: -95.7129, animate: true})">
-                    <span class="flag">🇺🇸</span>
-                    <span class="name">United States</span>
-                    <span class="details">Main Export Market</span>
-                </div>
-                <div class="export-markets">
-                    <div class="export-market" data-country="ESP">
-                        <span class="flag">🇪🇸</span>
-                        <span class="name">Spain</span>
-                    </div>
-                    <div class="export-market" data-country="FRA">
-                        <span class="flag">🇫🇷</span>
-                        <span class="name">France</span>
-                    </div>
-                    <div class="export-market" data-country="BEL">
-                        <span class="flag">🇧🇪</span>
-                        <span class="name">Belgium</span>
-                    </div>
-                    <div class="export-market" data-country="AGO">
-                        <span class="flag">🇦🇴</span>
-                        <span class="name">Angola</span>
-                    </div>
-                    <div class="export-market" data-country="MOZ">
-                        <span class="flag">🇲🇿</span>
-                        <span class="name">Mozambique</span>
-                    </div>
-                    <div class="export-market" data-country="CPV">
-                        <span class="flag">🇨🇻</span>
-                        <span class="name">Cabo Verde</span>
-                    </div>
-                </div>
-
-                <h3>Industrial Centers</h3>
-                <div class="location-item" data-country="PRT">
-                    <div class="location-header">
-                        <span class="flag">🇵🇹</span>
-                        <span class="name">Portugal</span>
-                    </div>
-                    <div class="industrial-centers">
-                        <p>Trofa - Cereals & Bars</p>
-                        <p>Maia - Semolina, Pasta (2), Cookies</p>
-                        <p>Lisboa - Soft Wheat</p>
-                        <p>Porto - Soft Wheat & Rye</p>
-                    </div>
-                </div>
-                <div class="location-item" data-country="CZE">
-                    <div class="location-header">
-                        <span class="flag">🇨🇿</span>
-                        <span class="name">Czechia</span>
-                    </div>
-                    <div class="industrial-centers">
-                        <p>Litovel - Pasta Production</p>
-                    </div>
-                </div>
-            </div>
+        <div id="world-map"></div>
+        <div class="location-list">
+            <!-- Sidebar content will be dynamically updated based on the selected view -->
         </div>
     </section>
 
@@ -151,27 +55,80 @@
         <div class="product-categories">
             <div class="category">
                 <h3>Ready-to-Eat Cereals</h3>
-                <div class="product-types">
-                    <div class="product-type">
-                        <h4>Children's Cereals</h4>
-                        <ul>
-                            <li>Star-shaped cereals</li>
-                            <li>Cookie cereals</li>
-                            <li>Chocolate-flavored cereals</li>
-                            <li>Honey-flavored squares</li>
-                            <li>Filled pillows</li>
-                            <li>Loops and balls</li>
-                        </ul>
+                <div class="cereal-showcase">
+                    <div class="cereal-selector">
+                        <div class="cereal-type-tabs">
+                            <button class="type-tab active" data-type="children">Children's Cereals</button>
+                            <button class="type-tab" data-type="classic">Classic Cereals</button>
+                        </div>
+                        
+                        <div class="cereal-list" id="children-cereals">
+                            <div class="cereal-item active" data-cereal="star-shaped">
+                                <img src="cereals/star-shaped-thumb.png" alt="Star-shaped cereals" class="cereal-thumbnail">
+                                <span>Star-shaped cereals</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="cookie">
+                                <img src="cereals/cookie-thumb.png" alt="Cookie cereals" class="cereal-thumbnail">
+                                <span>Cookie cereals</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="chocolate">
+                                <img src="cereals/choco-rice-thumb.png" alt="Chocolate-flavored cereals" class="cereal-thumbnail">
+                                <span>Chocolate-flavored cereals</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="honey">
+                                <img src="cereals/honey-squares-thumb.png" alt="Honey-flavored squares" class="cereal-thumbnail">
+                                <span>Honey-flavored squares</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="filled">
+                                <img src="cereals/filled-pillows-thumb.png" alt="Filled pillows" class="cereal-thumbnail">
+                                <span>Filled pillows</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="loops">
+                                <img src="cereals/loops-thumb.png" alt="Loops and balls" class="cereal-thumbnail">
+                                <span>Loops and balls</span>
+                            </div>
+                        </div>
+
+                        <div class="cereal-list hidden" id="classic-cereals">
+                            <div class="cereal-item" data-cereal="corn-flakes">
+                                <img src="cereals/cornflakes-thumb.png" alt="Corn flakes" class="cereal-thumbnail">
+                                <span>Corn flakes</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="bran">
+                                <img src="cereals/branflakes-thumb.png" alt="Bran/Wheat flakes" class="cereal-thumbnail">
+                                <span>Bran/Wheat flakes</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="rice">
+                                <img src="cereals/rice-flakes-thumb.png" alt="Rice/Wheat flakes" class="cereal-thumbnail">
+                                <span>Rice/Wheat flakes</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="crispies">
+                                <img src="cereals/rice-crispies-thumb.png" alt="Rice crispies" class="cereal-thumbnail">
+                                <span>Rice crispies</span>
+                            </div>
+                            <div class="cereal-item" data-cereal="granola">
+                                <img src="cereals/bransticks-thumb.png" alt="Granola & Muesli" class="cereal-thumbnail">
+                                <span>Granola & Muesli</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-type">
-                        <h4>Classic Cereals</h4>
-                        <ul>
-                            <li>Corn flakes</li>
-                            <li>Bran/Wheat flakes</li>
-                            <li>Rice/Wheat flakes</li>
-                            <li>Rice crispies</li>
-                            <li>Granola & Muesli</li>
-                        </ul>
+
+                    <div class="cereal-display">
+                        <div class="cereal-image-container">
+                            <img src="cereals/star-shaped-thumb.png" alt="Selected cereal" id="selected-cereal-image">
+                            <div class="cereal-nav">
+                                <button class="nav-btn prev" aria-label="Previous cereal">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="nav-btn next" aria-label="Next cereal">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cereal-info">
+                            <h4 id="selected-cereal-name">Star-shaped cereals</h4>
+                            <p id="selected-cereal-description">Colorful star-shaped cereals perfect for children's breakfast. Made with whole grains and enriched with vitamins and minerals.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -351,6 +308,47 @@
             </div>
         </div>
     </section>
+    
+    <section class="values" id="values">
+        <h2>Our Values</h2>
+        <div class="values-grid">
+            <div class="value-card speak-up">
+                <h3>Speak Up</h3>
+                <p>Be transparent and direct. Share your constructive opinions to help improve our company. We value open dialogue and are always ready to adapt.</p>
+                <div class="value-tags">
+                    <span class="tag">Transparency</span>
+                    <span class="tag">Directness</span>
+                </div>
+            </div>
+
+            <div class="value-card own-it">
+                <h3>Own It</h3>
+                <p>Be rigorous and proud of your work. Celebrate victories and learn from setbacks. Take responsibility for your individual and collective achievements.</p>
+                <div class="value-tags">
+                    <span class="tag">Rigor</span>
+                    <span class="tag">Responsibility</span>
+                </div>
+            </div>
+
+            <div class="value-card learn-forever">
+                <h3>Learn Forever</h3>
+                <p>Stay curious and open to learning from colleagues, customers, and competitors. Embrace humility and maintain an eagerness to grow and improve.</p>
+                <div class="value-tags">
+                    <span class="tag">Curiosity</span>
+                    <span class="tag">Humility</span>
+                </div>
+            </div>
+
+            <div class="value-card strive">
+                <h3>Strive for Greatness</h3>
+                <p>Be ambitious and courageous in your journey. Challenge yourself and the company to reach new heights with an entrepreneurial spirit.</p>
+                <div class="value-tags">
+                    <span class="tag">Ambition</span>
+                    <span class="tag">Courage</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="cta" id="contact">
         <h2>Partner with Us</h2>
@@ -365,19 +363,9 @@
 
     <script src="map.js"></script>
     <script src="numbers.js"></script>
+    <script src="carousel.js"></script>
     <a href="#home" class="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </a>
-    <script>
-        // Show/hide scroll-to-top button based on scroll position
-        window.addEventListener('scroll', () => {
-            const scrollButton = document.querySelector('.scroll-to-top');
-            if (window.scrollY > 500) {
-                scrollButton.classList.add('visible');
-            } else {
-                scrollButton.classList.remove('visible');
-            }
-        });
-    </script>
 </body>
 </html>
