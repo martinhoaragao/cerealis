@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Generate placeholder images for cereals
     function generatePlaceholderImage(type) {
-        return `https://placehold.co/600x600/e9e9e9/006837?text=${type.replace(/-/g, ' ')}`;
+        return `/assets/images/cereals/${type.replace(/-/g, '-')}-thumb.png`;
     }
 
     // Handle image loading errors
     function handleImageError(img) {
         const cerealType = img.closest('[data-cereal]')?.dataset.cereal || 'cereal';
-        img.src = generatePlaceholderImage(cerealType);
+        img.src = `https://placehold.co/600x600/e9e9e9/006837?text=${cerealType.replace(/-/g, ' ')}`;
     }
 
     // Initialize images and add error handlers
