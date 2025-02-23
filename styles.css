@@ -1938,21 +1938,22 @@ html {
 .type-tab {
     padding: 0.75rem 1.5rem;
     border: none;
-    background: #f5f5f5;
+    background: #fcfae2;
     border-radius: 25px;
     cursor: pointer;
     font-weight: 500;
-    color: #666;
+    color: #333;
     transition: all 0.3s ease;
 }
 
 .type-tab.active {
-    background: #006837;
-    color: white;
+    background: #fdb704;
+    color: #333;
 }
 
 .type-tab:hover:not(.active) {
-    background: #e0e0e0;
+    background: #bead06;
+    color: #333;
 }
 
 .cereal-list {
