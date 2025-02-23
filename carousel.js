@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Generate placeholder images for cereals
     function generatePlaceholderImage(type) {
-        return `/assets/images/cereals/${type.replace(/-/g, '-')}-thumb.png`;
+        return `assets/images/cereals/${type.replace(/-/g, '-')}-thumb.png`;
     }
 
     // Handle image loading errors
