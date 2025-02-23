@@ -650,79 +650,82 @@ body {
 
 .products-cta {
     margin-top: 4rem;
-    padding: 2rem;
-    background: rgba(0, 104, 55, 0.05);
+    padding: 3rem;
+    background: #fcfae2;
     border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(139, 139, 0, 0.1);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.products-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #fdb704, #bead06);
 }
 
 .products-cta p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
     color: #333;
+    font-weight: 600;
+    line-height: 1.4;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.products-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: #fdb704;
+    color: #333;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.products-cta .btn:hover {
+    transform: translateY(-3px);
+    background: #bead06;
+    box-shadow: 0 8px 25px rgba(139, 139, 0, 0.2);
+}
+
+.products-cta .btn i {
+    transition: transform 0.3s ease;
+}
+
+.products-cta .btn:hover i {
+    transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
-    .products {
-        padding: 40px 20px;
+    .products-cta {
+        padding: 2rem;
+        margin: 2rem 1rem;
     }
 
-    .products h2 {
-        font-size: 2rem;
+    .products-cta p {
+        font-size: 1.4rem;
     }
 
-    .products-intro {
+    .products-cta .btn {
+        padding: 0.8rem 2rem;
         font-size: 1.1rem;
-        margin-bottom: 2rem;
-    }
-
-    .product-categories {
-        gap: 2rem;
-    }
-
-    .category {
-        padding: 1.5rem;
-    }
-
-    .product-types,
-    .additional-products,
-    .packaging-options {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .product-type {
-        padding: 1rem;
-    }
-
-    .additional-products .product-type {
-        padding: 1.5rem;
-    }
-
-    .additional-products {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .additional-products .product-type {
-        width: 100%;
-        max-width: none;
-    }
-
-    .packaging-options {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-        padding: 1rem;
-    }
-
-    .package-type {
-        padding: 0.75rem 1rem;
-    }
-
-    .package-type i {
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-        font-size: 1.2rem;
     }
 }
 
@@ -1909,7 +1912,9 @@ html {
     aspect-ratio: 21/9;
     cursor: pointer;
     display: flex;
-    background: #000;
+    background: #fcfae2;
+    border: 1px solid rgba(139, 139, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .vertical-text {
@@ -1919,15 +1924,15 @@ html {
     padding: 1.5rem 0.75rem;
     font-size: 2em;
     font-weight: 700;
-    color: white;
-    background: rgba(0, 0, 0, 0.7);
+    color: #333;
+    background: #fdb704;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
     letter-spacing: 0.15em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     min-width: 60px;
+    border-left: 2px solid rgba(139, 139, 0, 0.1);
 }
 
 .product-media {
@@ -1953,8 +1958,8 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
+    background: rgba(253, 183, 4, 0.95);
+    color: #333;
     padding: 2rem;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -1968,10 +1973,11 @@ html {
 }
 
 .product-details p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
     max-width: 800px;
+    font-weight: 500;
 }
 
 .product-features {
@@ -1985,19 +1991,23 @@ html {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: #fcfae2;
     border-radius: 20px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-features span:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #bead06;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .product-features span i {
-    color: rgba(255, 165, 0, 0.9);
+    color: #333;
 }
 
 @media (max-width: 1400px) {
