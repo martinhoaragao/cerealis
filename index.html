@@ -32,6 +32,44 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Prevent scroll restoration and ensure page starts at top -->
+    <script>
+        // Prevent scroll restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // Force scroll to top on page load
+        window.addEventListener('load', function() {
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Ensure we start at top before anything loads
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        
+        // Re-enable smooth scrolling after initial load
+        window.addEventListener('load', function() {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        // Prevent any scroll events during initial load
+        let initialLoadComplete = false;
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                initialLoadComplete = true;
+            }, 100);
+        });
+
+        window.addEventListener('scroll', function(e) {
+            if (!initialLoadComplete) {
+                window.scrollTo(0, 0);
+            }
+        }, { passive: false });
+    </script>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -465,16 +503,6 @@
     <script src="numbers.js"></script>
     <script src="carousel.js"></script>
     <script src="navigation.js"></script>
-    <script>
-        // Ensure page starts at the top when loaded
-        window.onload = function() {
-            window.scrollTo(0, 0);
-        };
-        // Prevent any scroll restoration
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
-    </script>
     <a href="#home" class="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </a>
