@@ -16,9 +16,9 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#numbers">Key Numbers</a>
-            <a href="#global-presence">Global Presence</a>
             <a href="#products">Products</a>
             <a href="#quality">Quality</a>
+            <a href="#global-presence">Global Presence</a>
             <a href="#sustainability">Sustainability</a>
             <a href="#values">Values</a>
             <a href="#contact">Contact</a>
@@ -38,14 +38,6 @@
         <div class="stat"><strong>440,000</strong> Tons Produced</div>
         <div class="stat"><strong>5</strong> Product Categories</div>
         <div class="stat"><strong>160</strong> Private Label Products in Breakfast Cereals</div>
-    </section>
-
-    <section class="global-presence" id="global-presence">
-        <h2>Global Presence</h2>
-        <div id="world-map"></div>
-        <div class="location-list">
-            <!-- Sidebar content will be dynamically updated based on the selected view -->
-        </div>
     </section>
 
     <section class="products" id="products">
@@ -253,6 +245,14 @@
         </div>
     </section>
 
+    <section class="global-presence" id="global-presence">
+        <h2>Global Presence</h2>
+        <div id="world-map"></div>
+        <div class="location-list">
+            <!-- Sidebar content will be dynamically updated based on the selected view -->
+        </div>
+    </section>
+
     <section class="sustainability" id="sustainability">
         <div class="sustainability-content">
             <h2>Our Commitment to Sustainability</h2>
@@ -364,6 +364,16 @@
     <script src="map.js"></script>
     <script src="numbers.js"></script>
     <script src="carousel.js"></script>
+    <script>
+        // Ensure page starts at the top when loaded
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+        // Prevent any scroll restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+    </script>
     <a href="#home" class="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </a>

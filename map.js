@@ -59,23 +59,32 @@ const MAP_CONFIG = {
     zoomButtonsPos: { right: 10, top: 10 },
     markers: INDUSTRIAL_CENTERS.map(center => ({
         ...center,
-        style: { initial: { fill: '#006837' } }
+        style: { initial: { fill: 'rgba(255, 223, 128, 0.9)' } }
     })),
     markerStyle: {
-        initial: { stroke: '#fff', r: 6 },
-        hover: { stroke: '#fff', r: 8 }
+        initial: { 
+            stroke: '#fff',
+            r: 8,
+            strokeWidth: 2
+        },
+        hover: { 
+            stroke: '#fff',
+            r: 12,
+            strokeWidth: 3,
+            cursor: 'pointer'
+        }
     },
     series: {
         regions: [{
             attribute: 'fill',
             scale: {
-                production: '#006837',
-                export: '#ffcc00',
+                export: 'rgba(139, 139, 0, 0.9)',
                 default: '#e4e4e4'
             },
             values: Object.fromEntries([
-                ...['PT', 'CZ'].map(code => [code, 'production']),
-                ...EXPORT_MARKETS.map(market => [market.country, 'export'])
+                ...EXPORT_MARKETS.map(market => [market.country, 'export']),
+                ['PT', 'export'],
+                ['CZ', 'export']
             ])
         }]
     },
@@ -84,16 +93,25 @@ const MAP_CONFIG = {
         hover: {
             fill: function(element, code) {
                 const values = this.series.regions[0].values;
-                return values[code] === 'production' ? '#004d29' : 
-                       values[code] === 'export' ? '#e6b800' : 
-                       '#d4d4d4';
+                return values[code] === 'export' ? 'rgba(139, 139, 0, 1)' : '#d4d4d4';
             }
         }
     },
     onMarkerTipShow: function(event, tip, code) {
         const marker = this.markers[code];
         if (marker.content) {
-            tip.html(`${tip.html()}: ${marker.content}`);
+            tip.html(`
+                <div style="
+                    background: rgba(255, 255, 255, 0.9);
+                    padding: 8px;
+                    border-radius: 4px;
+                    border: 2px solid rgba(255, 223, 128, 0.9);
+                    font-weight: bold;
+                ">
+                    <div style="color: #000000">${marker.name}</div>
+                    <div>${marker.content}</div>
+                </div>
+            `);
         }
     }
 };
