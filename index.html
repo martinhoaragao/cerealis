@@ -11,6 +11,9 @@
     <meta name="keywords" content="breakfast cereals, private label cereals, cereal manufacturing, food production, sustainable food, quality cereals">
     <meta name="author" content="Cerealis">
     
+    <!-- Font Awesome (Moved to top for early loading) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cerealis.pt/">
@@ -72,7 +75,6 @@
     </script>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.css">
     <link rel="stylesheet" href="https://unpkg.com/jsvectormap/dist/css/jsvectormap.css">
@@ -108,9 +110,9 @@
     </nav>
 
     <header class="banner" id="home">
-        <video class="banner-video" autoplay muted loop playsinline>
-            <source src="assets/videos/Ambicao-Cerealis.webm" type="video/webm">
-            <source src="assets/videos/Ambicao-Cerealis.mov" type="video/quicktime">
+        <video class="banner-video" autoplay muted loop playsinline poster="assets/images/banner-poster.jpg" data-src="assets/videos/Ambicao-Cerealis.webm">
+            <source data-src="assets/videos/Ambicao-Cerealis.webm" type="video/webm">
+            <source data-src="assets/videos/Ambicao-Cerealis.mov" type="video/quicktime">
         </video>
         <div class="banner-content">
             <div class="banner-title">
@@ -220,9 +222,9 @@
                     <div class="product-card pasta">
                         <div class="vertical-text">PASTA</div>
                         <div class="product-media">
-                            <video class="product-video" autoplay muted loop playsinline>
-                                <source src="assets/videos/pasta-production.webm" type="video/webm">
-                                <source src="assets/videos/pasta-production.mov" type="video/quicktime">
+                            <video class="product-video" autoplay muted loop playsinline poster="assets/images/pasta-poster.jpg" data-src="assets/videos/pasta-production.webm">
+                                <source data-src="assets/videos/pasta-production.webm" type="video/webm">
+                                <source data-src="assets/videos/pasta-production.mov" type="video/quicktime">
                             </video>
                             <div class="product-details">
                                 <p>Strategic production facilities in Portugal and Czechia, offering a wide range of pasta varieties.</p>
@@ -237,9 +239,9 @@
                     <div class="product-card biscuits">
                         <div class="vertical-text">BISCUITS</div>
                         <div class="product-media">
-                            <video class="product-video" autoplay muted loop playsinline>
-                                <source src="assets/videos/biscuits-production.webm" type="video/webm">
-                                <source src="assets/videos/biscuits-production.mov" type="video/quicktime">
+                            <video class="product-video" autoplay muted loop playsinline poster="assets/images/biscuits-poster.jpg" data-src="assets/videos/biscuits-production.webm">
+                                <source data-src="assets/videos/biscuits-production.webm" type="video/webm">
+                                <source data-src="assets/videos/biscuits-production.mov" type="video/quicktime">
                             </video>
                             <div class="product-details">
                                 <p>From sweet to savory, our biscuit range combines traditional recipes with modern nutrition.</p>
@@ -254,9 +256,9 @@
                     <div class="product-card bars">
                         <div class="vertical-text">BARS</div>
                         <div class="product-media">
-                            <video class="product-video" autoplay muted loop playsinline>
-                                <source src="assets/videos/bars-production.webm" type="video/webm">
-                                <source src="assets/videos/bars-production.mov" type="video/quicktime">
+                            <video class="product-video" autoplay muted loop playsinline poster="assets/images/bars-poster.jpg" data-src="assets/videos/bars-production.webm">
+                                <source data-src="assets/videos/bars-production.webm" type="video/webm">
+                                <source data-src="assets/videos/bars-production.mov" type="video/quicktime">
                             </video>
                             <div class="product-details">
                                 <p>Innovative snack and cereal bars designed for modern consumers, combining nutrition with convenience.</p>
@@ -271,9 +273,9 @@
                     <div class="product-card flour">
                         <div class="vertical-text">FLOUR</div>
                         <div class="product-media">
-                            <video class="product-video" autoplay muted loop playsinline>
-                                <source src="assets/videos/flour-production.webm" type="video/webm">
-                                <source src="assets/videos/flour-production.mov" type="video/quicktime">
+                            <video class="product-video" autoplay muted loop playsinline poster="assets/images/flour-poster.jpg" data-src="assets/videos/flour-production.webm">
+                                <source data-src="assets/videos/flour-production.webm" type="video/webm">
+                                <source data-src="assets/videos/flour-production.mov" type="video/quicktime">
                             </video>
                             <div class="product-details">
                                 <p>Premium flour production combining generations of milling expertise with innovative technology.</p>
@@ -519,5 +521,37 @@
     <a href="#home" class="scroll-to-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </a>
+
+    <script>
+        // Lazy load videos when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video[data-src]');
+            
+            const loadVideo = (video) => {
+                const sources = video.querySelectorAll('source');
+                sources.forEach(source => {
+                    source.src = source.dataset.src;
+                });
+                video.src = video.dataset.src;
+                video.load();
+            };
+
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadVideo(entry.target);
+                        videoObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+
+            videos.forEach(video => {
+                videoObserver.observe(video);
+            });
+        });
+    </script>
 </body>
 </html>
