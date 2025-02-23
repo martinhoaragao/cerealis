@@ -823,13 +823,7 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.export-market:hover {
-    background: #fcfae2;
-    transform: translateY(-2px);
+    cursor: default;
 }
 
 .export-market .flag {
@@ -2217,4 +2211,11 @@ html {
         font-size: 1.2rem;
         padding: 0 1rem;
     }
+}
+
+.jvm-tooltip {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 } 

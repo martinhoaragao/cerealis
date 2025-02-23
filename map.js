@@ -66,12 +66,6 @@ const MAP_CONFIG = {
             stroke: '#fff',
             r: 8,
             strokeWidth: 2
-        },
-        hover: { 
-            stroke: '#fff',
-            r: 12,
-            strokeWidth: 3,
-            cursor: 'pointer'
         }
     },
     series: {
@@ -89,29 +83,39 @@ const MAP_CONFIG = {
         }]
     },
     regionStyle: {
-        initial: { fill: '#e4e4e4' },
-        hover: {
-            fill: function(element, code) {
-                const values = this.series.regions[0].values;
-                return values[code] === 'export' ? 'rgba(139, 139, 0, 1)' : '#d4d4d4';
-            }
-        }
+        initial: { fill: '#e4e4e4' }
     },
-    onMarkerTipShow: function(event, tip, code) {
-        const marker = this.markers[code];
-        if (marker.content) {
-            tip.html(`
-                <div style="
-                    background: rgba(255, 255, 255, 0.9);
-                    padding: 8px;
-                    border-radius: 4px;
-                    border: 2px solid rgba(255, 223, 128, 0.9);
-                    font-weight: bold;
-                ">
-                    <div style="color: #000000">${marker.name}</div>
-                    <div>${marker.content}</div>
-                </div>
-            `);
+    // Disable all tooltips, interactions, and labels
+    onRegionTipShow: function(event) {
+        event.preventDefault();
+        return false;
+    },
+    onMarkerTipShow: function(event) {
+        event.preventDefault();
+        return false;
+    },
+    onRegionOver: function(event) {
+        event.preventDefault();
+        return false;
+    },
+    onMarkerOver: function(event) {
+        event.preventDefault();
+        return false;
+    },
+    onRegionSelected: function(event) {
+        event.preventDefault();
+        return false;
+    },
+    onRegionLabelShow: function(event) {
+        event.preventDefault();
+        return false;
+    },
+    // Disable labels completely
+    labels: {
+        regions: {
+            render: function(code) {
+                return false;
+            }
         }
     }
 };
@@ -121,11 +125,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const map = new jsVectorMap(MAP_CONFIG);
     window.mapInstance = map;
 
+    // Remove tooltip element if it exists
+    const tooltip = document.querySelector('.jvm-tooltip');
+    if (tooltip) {
+        tooltip.remove();
+    }
+
     // Add view controls
     initializeViewControls(map);
     
     // Initialize with export markets view
     updateView('export', map);
+
+    // Add mutation observer to remove tooltip if it gets added dynamically
+    const observer = new MutationObserver((mutations) => {
+        const tooltip = document.querySelector('.jvm-tooltip');
+        if (tooltip) {
+            tooltip.remove();
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 });
 
 // View management
