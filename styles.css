@@ -65,7 +65,8 @@ body {
     font-size: 0.95rem;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: rgba(139, 139, 0, 0.9);
     background: rgba(139, 139, 0, 0.08);
 }
@@ -82,7 +83,8 @@ body {
     transform: translateX(-50%);
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
     width: 70%;
 }
 
