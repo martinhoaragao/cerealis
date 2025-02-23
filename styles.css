@@ -2721,4 +2721,49 @@ html {
     .mobile-logo {
         display: block;
     }
+}
+
+@media (max-width: 768px) {
+    .cereal-showcase {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .cereal-display {
+        display: none; /* Hide the carousel display section on mobile */
+    }
+    
+    .cereal-list {
+        width: 100%;
+        padding: 1rem;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+        overflow-x: visible;
+        max-height: none; /* Remove max-height constraint on mobile */
+        height: auto; /* Let it adjust to content */
+    }
+    
+    .cereal-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cereal-item span {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .cereal-thumbnail {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+    }
 } 
