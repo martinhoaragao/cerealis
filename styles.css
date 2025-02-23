@@ -1207,7 +1207,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: auto;
+    min-height: 250px;
 }
 
 .quality-pillar .icon {
@@ -1227,7 +1228,7 @@ a {
 .quality-pillar h3 {
     font-size: 1.5em;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: #333;
 }
 
@@ -1284,39 +1285,102 @@ a {
 
 @media (max-width: 768px) {
     .quality {
-        padding: 4rem 1.5rem 6rem;
+        padding: 4rem 1rem 6rem;
     }
 
     .quality h2 {
         font-size: 2rem;
+        margin-bottom: 2rem;
     }
 
     .quality-intro {
         font-size: 1.1rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
     }
 
     .quality-grid {
+        display: flex;
+        flex-direction: column;
         gap: 1.5rem;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 
     .quality-pillar {
-        padding: 2rem;
+        width: 100%;
+        padding: 1.5rem;
+        margin: 0;
+        min-height: auto;
+        box-sizing: border-box;
+    }
+
+    .quality-pillar .icon {
+        font-size: 1.8rem;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+    }
+
+    .quality-pillar h3 {
+        font-size: 1.3em;
+        margin-bottom: 0.8rem;
+        width: 100%;
+    }
+
+    .quality-pillar p {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .cert-badges {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    .cert-badge {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
     }
 
     .special-certifications .cert-badges {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        gap: 0.5rem;
+        padding: 0;
     }
 }
 
 @media (max-width: 480px) {
-    .cert-badges {
-        flex-direction: column;
+    .quality {
+        padding: 3rem 0.8rem 5rem;
     }
 
-    .cert-badge {
+    .quality-grid {
+        gap: 1.2rem;
+    }
+
+    .quality-pillar {
+        padding: 1.2rem;
+        margin: 0;
         width: 100%;
-        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .special-certifications .cert-badges {
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 0;
     }
 }
 
