@@ -9,9 +9,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Generate placeholder images for cereals
-    function generatePlaceholderImage(type) {
-        return `assets/images/cereals/${type.replace(/-/g, '-')}-thumb.png`;
+    // Map of cereal types to their images (main and thumbnail)
+    const cerealImages = {
+        // Cereals with distinct main images
+        'star-shaped': {
+            main: 'star-shaped.png',
+            thumb: 'star-shaped-thumb.png'
+        },
+        'cookie': {
+            main: 'cookies.png',
+            thumb: 'cookie-thumb.png'
+        },
+        'cocoa-curls': {
+            main: 'chocolate.png',
+            thumb: 'cocoa-curls-thumb.png'
+        },
+        'balls': {
+            main: 'loops.png',
+            thumb: 'balls-thumb.png'
+        },
+        'bran-flakes': {
+            main: 'bran.png',
+            thumb: 'branflakes-thumb.png'
+        },
+        'cornflakes': {
+            main: 'cornflakes.png',
+            thumb: 'cornflakes-thumb.png'
+        },
+        'bransticks': {
+            main: 'bransticks.png',
+            thumb: 'bransticks-thumb.png'
+        },
+        // Cereals with same image or only thumbnails
+        'granola': {
+            main: 'granola.png',
+            thumb: 'granola.png'
+        },
+        'loops': {
+            main: null,
+            thumb: 'loops-thumb.png'
+        },
+        'honey-squares': {
+            main: null,
+            thumb: 'honey-squares-thumb.png'
+        },
+        'filled-pillows': {
+            main: null,
+            thumb: 'filled-pillows-thumb.png'
+        },
+        'rice-flakes': {
+            main: null,
+            thumb: 'rice-flakes-thumb.png'
+        },
+        'rice-crispies': {
+            main: null,
+            thumb: 'rice-crispies-thumb.png'
+        }
+    };
+
+    // Generate image path
+    function getImagePath(type, isThumb = false) {
+        const imageInfo = cerealImages[type];
+        const filename = isThumb ? imageInfo.thumb : (imageInfo.main || imageInfo.thumb);
+        return `assets/images/cereals/${filename}`;
     }
 
     // Handle image loading errors
@@ -20,13 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = `https://placehold.co/600x600/e9e9e9/006837?text=${cerealType.replace(/-/g, ' ')}`;
     }
 
-    // Initialize images and add error handlers
-    document.querySelectorAll('.cereal-thumbnail, #selected-cereal-image').forEach(img => {
+    // Initialize thumbnail images and add error handlers
+    document.querySelectorAll('.cereal-thumbnail').forEach(img => {
         img.onerror = () => handleImageError(img);
-        if (!img.src || img.src.includes('placehold.co')) {
-            const cerealType = img.closest('[data-cereal]')?.dataset.cereal || 'star-shaped';
-            img.src = generatePlaceholderImage(cerealType);
-        }
+        const cerealType = img.closest('[data-cereal]')?.dataset.cereal || 'star-shaped';
+        img.src = getImagePath(cerealType, true);
     });
 
     const typeTabs = document.querySelectorAll('.type-tab');
@@ -42,15 +100,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const cerealDescriptions = {
         "star-shaped": "Colorful star-shaped cereals perfect for children's breakfast. Made with whole grains and enriched with vitamins and minerals.",
         "cookie": "Cookie-inspired cereals that bring the beloved taste of cookies to breakfast time, with a healthy twist.",
-        "chocolate": "Rich chocolate-flavored cereals that satisfy sweet cravings while providing essential nutrients.",
-        "honey": "Crunchy squares with natural honey sweetness, perfect for a wholesome breakfast.",
-        "filled": "Delicious pillows filled with chocolate or other sweet fillings, creating an exciting breakfast experience.",
-        "loops": "Fun loops and balls in various flavors, making breakfast time more enjoyable for kids.",
-        "corn-flakes": "Traditional corn flakes made from premium corn, providing a classic breakfast option.",
-        "bran": "Nutritious bran and wheat flakes rich in fiber and essential nutrients.",
-        "rice": "Light and crispy rice and wheat flakes, perfect for a gentle start to the day.",
-        "crispies": "Crispy rice cereals that maintain their crunch in milk.",
-        "granola": "Premium granola and muesli blend with carefully selected ingredients and dried fruits."
+        "cocoa-curls": "Rich chocolate-flavored curls that satisfy sweet cravings while providing essential nutrients.",
+        "balls": "Crunchy cereal balls perfect for a fun and nutritious breakfast experience.",
+        "bran-flakes": "Nutritious bran flakes rich in fiber and essential nutrients.",
+        "cornflakes": "Traditional corn flakes made from premium corn, providing a classic breakfast option.",
+        "bransticks": "Crunchy bran sticks packed with fiber and whole grain goodness.",
+        "granola": "Premium granola & muesli blend with carefully selected ingredients and dried fruits.",
+        "loops": "Colorful and fun loops in various flavors, making breakfast time more enjoyable for kids.",
+        "honey-squares": "Crunchy squares with natural honey sweetness, perfect for a wholesome breakfast.",
+        "filled-pillows": "Delicious pillows filled with chocolate or other sweet fillings, creating an exciting breakfast experience.",
+        "rice-flakes": "Light and crispy rice flakes, perfect for a gentle start to the day.",
+        "rice-crispies": "Crispy rice cereals that maintain their crunch in milk."
     };
 
     // Select cereal item
@@ -62,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const cerealType = item.dataset.cereal;
         
-        // For the main carousel, we'll use a placeholder until high-quality images are provided
-        selectedImage.src = generatePlaceholderImage(cerealType);
+        // Use main image if available, otherwise use thumbnail
+        selectedImage.src = getImagePath(cerealType, false);
         selectedImage.alt = item.querySelector('.cereal-thumbnail').alt;
         
         selectedName.textContent = item.querySelector('span').textContent;
