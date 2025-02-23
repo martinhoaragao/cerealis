@@ -790,7 +790,7 @@ a {
     position: relative;
     background-color: #fff;
     min-height: 800px;
-    padding: 0;
+    padding: 6rem 0 0;
     overflow: hidden;
     text-align: center;
 }
@@ -798,7 +798,7 @@ a {
 .global-presence h2 {
     text-align: center;
     color: rgba(139, 139, 0, 0.9);
-    margin: 2rem 0;
+    margin: 0 0 4rem;
     font-size: 2.5em;
     font-weight: 700;
     position: relative;
@@ -916,18 +916,11 @@ a {
 
 @media (max-width: 768px) {
     .global-presence {
-        min-height: auto;
-        padding-bottom: 20px;
+        padding: 4rem 0 0;
     }
 
     .global-presence h2 {
-        position: relative;
-        top: 0;
-        left: auto;
-        right: auto;
-        text-align: center;
-        margin: 2rem auto 1rem;
-        transform: none;
+        margin: 0 0 3rem;
     }
 
     .map-container {
@@ -1013,7 +1006,7 @@ a {
 }
 
 .sustainability {
-    padding: 6rem 2rem;
+    padding: 6rem 2rem 8rem;
     background-color: #fcf085;
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23006837' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     position: relative;
@@ -1152,7 +1145,7 @@ a {
 }
 
 .quality {
-    padding: 6rem 2rem;
+    padding: 6rem 2rem 8rem;
     background-color: #fdb704;
     position: relative;
 }
@@ -1206,7 +1199,7 @@ a {
 
 .quality-pillar {
     text-align: center;
-    padding: 2.5rem;
+    padding: 2rem;
     background: #fcfae2;
     border-radius: 15px;
     transition: all 0.3s ease;
@@ -1218,78 +1211,80 @@ a {
 }
 
 .quality-pillar .icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #333;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 1rem;
     transition: all 0.3s ease;
     background: #fdf8c9;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
 }
 
-.quality-pillar:hover .icon {
-    background: #bead06;
-    color: #333;
-    transform: scale(1.1);
-}
-
 .quality-pillar h3 {
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #333;
 }
 
 .quality-pillar p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 300;
     color: #333;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
 }
 
 .cert-badges {
     margin-top: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
     justify-content: center;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
 }
 
 .cert-badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     background: #fdf8c9;
-    border-radius: 20px;
-    margin: 0.25rem;
+    border-radius: 15px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
     color: #333;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
 }
 
 .cert-badge:hover {
     background: #bead06;
     color: #333;
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .special-certifications .cert-badges {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.special-certifications .cert-badge {
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
 }
 
 @media (max-width: 768px) {
     .quality {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1.5rem 6rem;
     }
 
     .quality h2 {
