@@ -1024,22 +1024,89 @@ a {
 .export-markets {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 12px;
     padding: 10px;
 }
 
 .export-market {
-    background: #fcfae2;
-    padding: 12px;
-    border-radius: 8px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    cursor: default;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(139, 139, 0, 0.1);
+}
+
+.export-market:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: rgba(139, 139, 0, 0.2);
+    background: #fcfae2;
 }
 
 .export-market .flag {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fcfae2;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.export-market .country-name {
+    font-weight: 500;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.export-market .market-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.export-market .market-type {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #006837;
+    color: white;
+    border-radius: 12px;
+    font-size: 0.85em;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .export-markets {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .export-market {
+        padding: 12px;
+    }
+
+    .export-market .flag {
+        font-size: 1.2rem;
+        width: 28px;
+        height: 28px;
+    }
+
+    .export-market .country-name {
+        font-size: 1em;
+    }
+
+    .export-market .market-type {
+        font-size: 0.8em;
+        padding: 3px 8px;
+    }
 }
 
 .industrial-centers {
@@ -1054,22 +1121,98 @@ a {
 
 .location-item {
     margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fcfae2;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(139, 139, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.location-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: rgba(139, 139, 0, 0.2);
 }
 
 .location-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(139, 139, 0, 0.1);
 }
 
 .location-header .name {
-    font-weight: bold;
+    font-weight: 600;
     color: #333;
+    font-size: 1.1em;
+}
+
+.location-header .icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdb704;
+    border-radius: 50%;
+    color: #333;
+}
+
+.industrial-details {
+    background: #fcfae2;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.industrial-details p {
+    margin: 8px 0;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95em;
+}
+
+.industrial-details p i {
+    color: #006837;
+    font-size: 1.1em;
+}
+
+.industrial-details .facility-type {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #006837;
+    color: white;
+    border-radius: 12px;
+    font-size: 0.85em;
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .location-item {
+        padding: 12px;
+    }
+
+    .location-header {
+        gap: 8px;
+    }
+
+    .location-header .name {
+        font-size: 1em;
+    }
+
+    .industrial-details {
+        padding: 10px;
+    }
+
+    .industrial-details p {
+        font-size: 0.9em;
+    }
 }
 
 .sustainability {
@@ -1981,22 +2124,89 @@ html {
 .export-markets {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 12px;
     padding: 10px;
 }
 
 .export-market {
-    background: #fcfae2;
-    padding: 12px;
-    border-radius: 8px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    cursor: default;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(139, 139, 0, 0.1);
+}
+
+.export-market:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: rgba(139, 139, 0, 0.2);
+    background: #fcfae2;
 }
 
 .export-market .flag {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fcfae2;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.export-market .country-name {
+    font-weight: 500;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.export-market .market-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.export-market .market-type {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #006837;
+    color: white;
+    border-radius: 12px;
+    font-size: 0.85em;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .export-markets {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .export-market {
+        padding: 12px;
+    }
+
+    .export-market .flag {
+        font-size: 1.2rem;
+        width: 28px;
+        height: 28px;
+    }
+
+    .export-market .country-name {
+        font-size: 1em;
+    }
+
+    .export-market .market-type {
+        font-size: 0.8em;
+        padding: 3px 8px;
+    }
 }
 
 /* Add pagination styling */
@@ -2058,33 +2268,61 @@ html {
 }
 
 .industrial-centers {
-    margin-top: 20px;
+    margin-top: 25px;
+}
+
+.industrial-details {
+    background: #fcfae2;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 .industrial-details p {
-    margin: 5px 0;
-    font-weight: bold;
+    margin: 8px 0;
+    font-weight: 500;
     color: #333;
-}
-
-.location-item {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fcfae2;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.location-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
+    font-size: 0.95em;
 }
 
-.location-header .name {
-    font-weight: bold;
-    color: #333;
+.industrial-details p i {
+    color: #006837;
+    font-size: 1.1em;
+}
+
+.industrial-details .facility-type {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #006837;
+    color: white;
+    border-radius: 12px;
+    font-size: 0.85em;
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .location-item {
+        padding: 12px;
+    }
+
+    .location-header {
+        gap: 8px;
+    }
+
+    .location-header .name {
+        font-size: 1em;
+    }
+
+    .industrial-details {
+        padding: 10px;
+    }
+
+    .industrial-details p {
+        font-size: 0.9em;
+    }
 }
 
 /* Product Grid Layout */
