@@ -54,7 +54,7 @@ const MAP_CONFIG = {
     selector: '#world-map',
     map: 'world',
     backgroundColor: 'transparent',
-    zoomButtons: true,
+    zoomButtons: window.innerWidth > 768, // Only show zoom buttons on desktop
     zoomOnScroll: false,
     zoomButtonsPos: { right: 10, top: 10 },
     markers: INDUSTRIAL_CENTERS.map(center => ({
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeViewControls(map) {
     const mapContainer = document.querySelector('#world-map');
     const controlsContainer = document.createElement('div');
-    controlsContainer.style.cssText = 'position: absolute; top: 20px; left: 20px; z-index: 100;';
+    controlsContainer.className = 'map-controls';
 
     const exportBtn = createViewButton('Export Markets', 'export', 'fa-globe');
     const industrialBtn = createViewButton('Industrial Centers', 'industrial', 'fa-industry');

@@ -786,6 +786,7 @@ a {
     min-height: 800px;
     padding: 0;
     overflow: hidden;
+    text-align: center;
 }
 
 .global-presence h2 {
@@ -799,8 +800,6 @@ a {
     padding: 15px 25px;
     background: #fcfae2;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -817,48 +816,10 @@ a {
     border-radius: 2px;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.pagination button {
-    padding: 8px 16px;
-    background-color: white;
-    color: rgba(139, 139, 0, 0.9);
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(139, 139, 0, 0.2);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.pagination button:hover:not(:disabled) {
-    background-color: rgba(139, 139, 0, 0.9);
-    color: white;
-    border-color: rgba(139, 139, 0, 0.9);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(139, 139, 0, 0.2);
-}
-
-.pagination button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background-color: #f5f5f5;
-    color: #999;
-    border-color: #e0e0e0;
-    box-shadow: none;
-    transform: none;
-}
-
-.pagination button i {
-    font-size: 12px;
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 800px;
 }
 
 #world-map {
@@ -884,24 +845,113 @@ a {
     z-index: 2;
 }
 
+.location-list h3 {
+    color: rgba(139, 139, 0, 0.9);
+    margin-bottom: 1rem;
+}
+
+.zoom-button {
+    padding: 12px 24px;
+    margin: 4px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.zoom-button:hover {
+    background-color: rgba(139, 139, 0, 0.9);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.zoom-button.active {
+    background-color: rgba(139, 139, 0, 0.9);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 139, 0, 0.3);
+}
+
+.jvm-zoom-btn {
+    position: absolute !important;
+    right: 30px !important;
+    background-color: #fcfae2 !important;
+    border: 1px solid rgba(139, 139, 0, 0.2) !important;
+    color: #333 !important;
+    width: 40px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    z-index: 3 !important;
+}
+
+.jvm-zoom-btn:hover {
+    background-color: #bead06 !important;
+    color: #333 !important;
+}
+
+.jvm-zoomin {
+    top: 30px !important;
+}
+
+.jvm-zoomout {
+    top: 80px !important;
+}
+
 @media (max-width: 768px) {
+    .global-presence {
+        min-height: auto;
+        padding-bottom: 20px;
+    }
+
     .global-presence h2 {
         position: relative;
         top: 0;
-        left: 0;
+        left: auto;
+        right: auto;
         text-align: center;
-        margin: 1rem auto;
-        width: fit-content;
+        margin: 2rem auto 1rem;
         transform: none;
     }
 
-    .location-list {
+    .map-container {
+        height: 400px;
+        margin: 0 auto;
+        padding: 0 10px;
         position: relative;
-        top: auto;
-        right: auto;
-        width: 90%;
-        margin: 1rem auto;
-        max-height: 300px;
+    }
+
+    #world-map {
+        position: relative;
+        height: 100%;
+    }
+
+    .location-list {
+        display: none;
+    }
+
+    .zoom-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        margin: 2px;
+    }
+
+    .map-controls {
+        bottom: 10px;
+    }
+
+    .jvm-zoom-btn {
+        display: none !important;
     }
 }
 
@@ -1093,152 +1143,6 @@ a {
 .safety-week i {
     color: rgba(139, 139, 0, 0.9);
     font-size: 1.5rem;
-}
-
-.map-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    min-height: 400px;
-}
-
-#world-map {
-    flex: 1;
-    min-height: 400px;
-}
-
-.location-list {
-    flex: 0 0 300px;
-    padding: 1rem;
-}
-
-.location-list h3 {
-    color: rgba(139, 139, 0, 0.9);
-    margin-bottom: 1rem;
-}
-
-.zoom-button {
-    padding: 12px 24px;
-    margin: 4px;
-    border: none;
-    border-radius: 25px;
-    background: white;
-    color: #333;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    z-index: 100;
-}
-
-.zoom-button:hover {
-    background-color: rgba(139, 139, 0, 0.9);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.zoom-button.active {
-    background-color: rgba(139, 139, 0, 0.9);
-    color: white;
-    box-shadow: 0 4px 15px rgba(139, 139, 0, 0.3);
-}
-
-.jvm-zoom-btn {
-    position: absolute !important;
-    right: 30px !important;
-    background-color: #fcfae2 !important;
-    border: 1px solid rgba(139, 139, 0, 0.2) !important;
-    color: #333 !important;
-    width: 40px !important;
-    height: 40px !important;
-    line-height: 40px !important;
-    text-align: center !important;
-    border-radius: 4px !important;
-    cursor: pointer !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-    transition: all 0.3s ease !important;
-    z-index: 3 !important;
-}
-
-.jvm-zoom-btn:hover {
-    background-color: #bead06 !important;
-    color: #333 !important;
-}
-
-.jvm-zoomin {
-    top: 30px !important;
-}
-
-.jvm-zoomout {
-    top: 80px !important;
-}
-
-@media (max-width: 768px) {
-    .sustainability {
-        padding: 4rem 1.5rem;
-    }
-
-    .sustainability-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .sustainability h2 {
-        font-size: 2rem;
-    }
-
-    .stat-highlight {
-        font-size: 2.5rem;
-    }
-
-    .cert-logo {
-        height: 50px;
-    }
-
-    .certifications {
-        gap: 1.5rem;
-    }
-
-    .map-container {
-        flex-direction: column;
-        min-height: auto;
-    }
-
-    #world-map {
-        height: 300px;
-        min-height: 300px;
-    }
-
-    .location-list {
-        flex: none;
-        width: 100%;
-        padding: 1rem 0;
-    }
-
-    .jvm-zoom-btn {
-        width: 25px !important;
-        height: 25px !important;
-        line-height: 25px !important;
-    }
-
-    .export-markets {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .industrial-centers {
-        margin-top: 0.5rem;
-    }
-
-    .zoom-button {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
 }
 
 .quality {
@@ -2325,4 +2229,15 @@ html {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
+}
+
+/* Add new container for the buttons */
+.map-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 100;
 } 
