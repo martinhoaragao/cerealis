@@ -11,11 +11,9 @@ function animateNumbers() {
             // 1. The element is intersecting
             // 2. The page is fully loaded
             // 3. This specific element hasn't been animated
-            // 4. The user has actually scrolled (not an automatic scroll)
             if (entry.isIntersecting && 
                 document.readyState === 'complete' && 
-                !animatedElements.has(target) && 
-                window.pageYOffset > 50) { // More reliable scroll check
+                !animatedElements.has(target)) {
                 
                 animatedElements.add(target); // Mark this specific element as animated
                 const finalNumber = parseInt(target.textContent.replace(/,/g, ''));
@@ -23,22 +21,26 @@ function animateNumbers() {
                 // Add the animated class to trigger the fade-in animation
                 target.classList.add('animated');
                 
-                // Animate the number counting up
-                let startNumber = 0;
-                const duration = 2000; // 2 seconds
-                const steps = 60;
-                const increment = finalNumber / steps;
-                const stepDuration = duration / steps;
+                // Use requestAnimationFrame for smoother animation
+                const startTime = performance.now();
+                const duration = 1500; // Reduced from 2000ms to 1500ms for better UX
                 
-                const counter = setInterval(() => {
-                    startNumber += increment;
-                    if (startNumber >= finalNumber) {
-                        target.textContent = finalNumber.toLocaleString();
-                        clearInterval(counter);
-                    } else {
-                        target.textContent = Math.floor(startNumber).toLocaleString();
+                function updateNumber(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Use easeOutQuad for smoother animation
+                    const easeProgress = 1 - (1 - progress) * (1 - progress);
+                    const currentNumber = Math.floor(finalNumber * easeProgress);
+                    
+                    target.textContent = currentNumber.toLocaleString();
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
                     }
-                }, stepDuration);
+                }
+                
+                requestAnimationFrame(updateNumber);
                 
                 // Only unobserve this specific element after its animation starts
                 observer.unobserve(target);
@@ -46,7 +48,7 @@ function animateNumbers() {
         });
     }, {
         threshold: 0.5,
-        rootMargin: '-50px' // Slightly delay the trigger until more of the element is visible
+        rootMargin: '0px'
     });
     
     // Start observing each stat individually

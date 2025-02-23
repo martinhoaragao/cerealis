@@ -80,6 +80,14 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/jsvectormap"></script>
     <script src="https://unpkg.com/jsvectormap/dist/maps/world.js"></script>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/fonts/Suisse Intl Regular Font.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/videos/Ambicao-Cerealis.webm" as="video" type="video/webm">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
 </head>
 <body>
     <nav class="navbar">
@@ -138,27 +146,27 @@
                         
                         <div class="cereal-list" id="children-cereals">
                             <div class="cereal-item active" data-cereal="star-shaped">
-                                <img src="assets/images/cereals/star-shaped-thumb.png" alt="Star-shaped cereals" class="cereal-thumbnail">
+                                <img src="assets/images/cereals/star-shaped-thumb.png" alt="Star-shaped cereals" class="cereal-thumbnail" loading="lazy">
                                 <span>Star-shaped cereals</span>
                             </div>
                             <div class="cereal-item" data-cereal="cookie">
-                                <img src="assets/images/cereals/cookie-thumb.png" alt="Cookie cereals" class="cereal-thumbnail">
+                                <img src="assets/images/cereals/cookie-thumb.png" alt="Cookie cereals" class="cereal-thumbnail" loading="lazy">
                                 <span>Cookie cereals</span>
                             </div>
                             <div class="cereal-item" data-cereal="chocolate">
-                                <img src="assets/images/cereals/choco-rice-thumb.png" alt="Chocolate-flavored cereals" class="cereal-thumbnail">
+                                <img src="assets/images/cereals/choco-rice-thumb.png" alt="Chocolate-flavored cereals" class="cereal-thumbnail" loading="lazy">
                                 <span>Chocolate-flavored cereals</span>
                             </div>
                             <div class="cereal-item" data-cereal="honey">
-                                <img src="assets/images/cereals/honey-squares-thumb.png" alt="Honey-flavored squares" class="cereal-thumbnail">
+                                <img src="assets/images/cereals/honey-squares-thumb.png" alt="Honey-flavored squares" class="cereal-thumbnail" loading="lazy">
                                 <span>Honey-flavored squares</span>
                             </div>
                             <div class="cereal-item" data-cereal="filled">
-                                <img src="assets/images/cereals/filled-pillows-thumb.png" alt="Filled pillows" class="cereal-thumbnail">
+                                <img src="assets/images/cereals/filled-pillows-thumb.png" alt="Filled pillows" class="cereal-thumbnail" loading="lazy">
                                 <span>Filled pillows</span>
                             </div>
                             <div class="cereal-item" data-cereal="loops">
-                                <img src="assets/images/cereals/loops-thumb.png" alt="Loops and balls" class="cereal-thumbnail">
+                                <img src="assets/images/cereals/loops-thumb.png" alt="Loops and balls" class="cereal-thumbnail" loading="lazy">
                                 <span>Loops and balls</span>
                             </div>
                         </div>
