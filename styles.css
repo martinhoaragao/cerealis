@@ -636,8 +636,8 @@ body {
 .packaging-options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 1.5rem;
+    gap: 1.5rem;
+    padding: 1rem;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -645,39 +645,17 @@ body {
 .package-type {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
     background: white;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.package-type::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, rgba(255, 165, 0, 0.9), rgba(139, 139, 0, 0.9));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.package-type:hover::before {
-    opacity: 1;
-}
-
-.package-type:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(139, 139, 0, 0.1);
+    border: 1px solid rgba(139, 139, 0, 0.1);
 }
 
 .package-type i {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: rgba(139, 139, 0, 0.9);
     background: rgba(255, 250, 205, 0.3);
     width: 45px;
@@ -689,15 +667,52 @@ body {
     flex-shrink: 0;
 }
 
-.package-type:hover i {
-    transform: scale(1.1) rotate(5deg);
-    background: rgba(255, 250, 205, 0.5);
+.package-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
-.package-type span {
+.package-name {
     color: #333;
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.package-detail {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.package-type:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 139, 0, 0.1);
+    border-color: rgba(139, 139, 0, 0.2);
+}
+
+.package-type:hover i {
+    background: rgba(255, 250, 205, 0.5);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .packaging-options {
+        grid-template-columns: 1fr;
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+
+    .package-type {
+        padding: 1rem;
+    }
+
+    .package-name {
+        font-size: 1rem;
+    }
+
+    .package-detail {
+        font-size: 0.85rem;
+    }
 }
 
 .products-cta {
@@ -2012,7 +2027,7 @@ html {
 .pagination button:hover:not(:disabled) {
     background: #bead06;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .pagination button:disabled {
