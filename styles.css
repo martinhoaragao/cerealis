@@ -1,5 +1,30 @@
+@font-face {
+    font-family: 'Suisse Intl';
+    src: url('assets/fonts/SuisseIntl Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Intl';
+    src: url('assets/fonts/Suisse Intl Regular Font.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suisse Intl';
+    src: url('assets/fonts/Suisse Intl Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Suisse Intl', Arial, sans-serif;
+    font-weight: 300;
     margin: 0;
     padding: 0;
     color: #333;
@@ -22,19 +47,22 @@ body {
 .nav-links {
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
-    max-width: 1200px;
+    gap: 1.5rem;
+    max-width: 1400px;
     margin: 0 auto;
+    flex-wrap: nowrap;
 }
 
 .nav-links a {
     color: #333;
     text-decoration: none;
-    font-weight: 600;
-    padding: 0.6rem 1.2rem;
+    font-weight: 700;
+    padding: 0.6rem 1rem;
     border-radius: 25px;
     transition: all 0.3s ease;
     position: relative;
+    white-space: nowrap;
+    font-size: 0.95rem;
 }
 
 .nav-links a:hover {
@@ -60,35 +88,60 @@ body {
 
 .banner {
     position: relative;
-    color: #fff;
-    text-align: center;
-    padding: 200px 20px;
-    margin-top: 60px;
+    text-align: left;
+    padding: clamp(80px, 12vh, 120px) 0 clamp(40px, 8vh, 80px);
+    margin-top: 0;
     animation: fadeIn 1.5s ease-in-out;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
+    justify-content: flex-end;
+    min-height: 90vh;
 }
 
-.banner h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    line-height: 1.2;
-    animation: slideIn 1.5s ease-out;
-}
-
-.banner p {
-    font-size: 1.5rem;
-    max-width: 600px;
+.banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 clamp(20px, 5vw, 80px);
+}
+
+.banner-title {
+    margin-bottom: 1.5rem;
+}
+
+.banner-title h1 {
+    position: relative;
+    color: #f7f5e3;
+    font-size: clamp(2.5rem, 5vw, 6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1.5s ease-out;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.banner-title h1:first-child {
+    font-size: clamp(2rem, 4.5vw, 5.5rem);
+}
+
+.banner-text {
+    max-width: 600px;
+}
+
+.banner-text p {
+    position: relative;
+    color: #f7f5e3;
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    font-weight: 400;
+    margin: 0.5rem 0;
     line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     animation: slideIn 1.8s ease-out;
+    opacity: 0.85;
 }
 
 .banner::after {
@@ -98,7 +151,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.35);
     z-index: 1;
 }
 
@@ -110,11 +163,6 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: 0;
-}
-
-.banner h1, .banner p {
-    position: relative;
-    z-index: 2;
 }
 
 @keyframes fadeIn {
@@ -164,6 +212,7 @@ body {
 .stat strong {
     display: block;
     font-size: 3em;
+    font-weight: 700;
     color: rgba(139, 139, 0, 0.9);
     margin-bottom: 1rem;
     position: relative;
@@ -219,51 +268,39 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-    }
-
-    .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-
-    .nav-links a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-
+@media (max-width: 1200px) {
     .banner {
-        padding: 150px 20px;
-        min-height: 60vh;
+        padding: clamp(70px, 10vh, 100px) 0 clamp(30px, 6vh, 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding: clamp(60px, 8vh, 80px) 0 clamp(20px, 4vh, 40px);
+        text-align: left;
     }
 
-    .banner h1 {
-        font-size: 2.5rem;
+    .banner-content {
+        padding: 0 clamp(15px, 4vw, 30px);
     }
 
-    .banner p {
-        font-size: 1.2rem;
+    .banner-text {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        min-height: 80vh;
+        padding: clamp(50px, 6vh, 60px) 0 clamp(15px, 3vh, 30px);
     }
 
-    .numbers {
-        padding: 20px;
-        gap: 15px;
+    .banner-title {
+        margin-bottom: 1rem;
     }
-    
-    .stat {
-        padding: 1.5rem;
-        min-width: 200px;
-    }
-    
-    .stat strong {
-        font-size: 2em;
-    }
-    
-    .stat:nth-child(1) strong,
-    .stat:nth-child(3) strong {
-        font-size: 2.5em;
+
+    .banner-text p {
+        margin: 0.3rem 0;
     }
 }
 
@@ -274,15 +311,17 @@ body {
 }
 
 .products h2 {
+    font-size: 2.5em;
+    font-weight: 700;
     color: rgba(139, 139, 0, 0.9);
-    margin-bottom: 1.5rem;
-    font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .products-intro {
     max-width: 800px;
     margin: 0 auto 3rem;
-    font-size: 1.2rem;
+    font-size: 1.2em;
+    font-weight: 300;
     line-height: 1.6;
     color: #555;
 }
@@ -303,9 +342,10 @@ body {
 }
 
 .category h3 {
+    font-size: 1.8em;
+    font-weight: 700;
     color: rgba(139, 139, 0, 0.9);
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     position: relative;
 }
 
@@ -654,7 +694,8 @@ a {
     text-align: center;
     color: rgba(139, 139, 0, 0.9);
     margin: 2rem 0;
-    font-size: 2.5rem;
+    font-size: 2.5em;
+    font-weight: 700;
     position: relative;
     z-index: 2;
     padding: 15px 25px;
@@ -840,7 +881,8 @@ a {
     text-align: center;
     color: rgba(139, 139, 0, 0.9);
     margin-bottom: 3rem;
-    font-size: 2.5rem;
+    font-size: 2.5em;
+    font-weight: 700;
     position: relative;
     display: inline-block;
     left: 50%;
@@ -903,14 +945,15 @@ a {
 }
 
 .sustainability-card h3 {
-    color: rgba(139, 139, 0, 0.9);
+    font-size: 1.8em;
+    font-weight: 700;
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    color: rgba(139, 139, 0, 0.9);
 }
 
 .stat-highlight {
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 3em;
+    font-weight: 700;
     color: rgba(139, 139, 0, 0.9);
     margin: 1.5rem 0;
     text-shadow: 2px 2px 4px rgba(139, 139, 0, 0.1);
@@ -1117,10 +1160,10 @@ a {
 }
 
 .quality h2 {
-    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
     color: rgba(139, 139, 0, 0.9);
     margin-bottom: 2rem;
-    font-size: 2.5rem;
     position: relative;
 }
 
@@ -1140,7 +1183,8 @@ a {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 4rem;
-    font-size: 1.2rem;
+    font-size: 1.2em;
+    font-weight: 300;
     line-height: 1.6;
     color: #555;
 }
@@ -1189,12 +1233,15 @@ a {
 }
 
 .quality-pillar h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
     color: #006837;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
 }
 
 .quality-pillar p {
+    font-size: 1.2em;
+    font-weight: 300;
     color: #666;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -1323,13 +1370,15 @@ html {
 }
 
 .cta h2 {
-    font-size: 2.5rem;
+    font-size: 2.5em;
+    font-weight: 700;
     margin-bottom: 1.5rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .cta p {
-    font-size: 1.2rem;
+    font-size: 1.2em;
+    font-weight: 400;
     margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
@@ -1343,7 +1392,7 @@ html {
     background: #ffcc00;
     color: #333;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     border-radius: 30px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -1380,9 +1429,9 @@ html {
 }
 
 .values h2 {
-    text-align: center;
-    color: rgba(139, 139, 0, 0.9);
     font-size: 2rem;
+    font-weight: 400;
+    color: rgba(139, 139, 0, 0.9);
     margin-bottom: 2rem;
 }
 
@@ -1426,7 +1475,7 @@ html {
 .value-tags .tag {
     padding: 0.4rem 0.8rem;
     border-radius: 15px;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 0.8rem;
     background: rgba(255, 255, 255, 0.2);
     color: #fff;
@@ -1654,12 +1703,15 @@ html {
 }
 
 .cereal-info h4 {
-    color: rgba(139, 139, 0, 0.9);
+    font-size: 1.4em;
+    font-weight: 400;
     margin-bottom: 0.5rem;
-    font-size: 1.4rem;
+    color: rgba(139, 139, 0, 0.9);
 }
 
 .cereal-info p {
+    font-size: 1.2em;
+    font-weight: 400;
     color: #666;
     line-height: 1.6;
 }
@@ -1755,19 +1807,19 @@ html {
 }
 
 .vertical-text {
-    writing-mode: vertical-rl;
+    writing-mode: vertical-lr;
     text-orientation: mixed;
     transform: rotate(180deg);
     padding: 1.5rem 0.75rem;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 2em;
+    font-weight: 700;
     color: white;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     min-width: 60px;
 }
@@ -1862,7 +1914,7 @@ html {
     }
     
     .vertical-text {
-        font-size: 1.4rem;
+        font-size: 1.6em;
         padding: 1rem 0.4rem;
         min-width: 40px;
     }
